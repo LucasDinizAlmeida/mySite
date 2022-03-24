@@ -1,0 +1,16 @@
+.container {
+  height: 8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: inherit;
+  color: white;
+  font-size: 0.95rem;
+
+  span {
+    margin-left: 0.5rem;
+    color: var(--red-600);
+  }
+}
+
+

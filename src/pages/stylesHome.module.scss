@@ -1,0 +1,68 @@
+
+.title {
+  text-align: center;
+  font: 400 3rem 'Dosis', sans-serif;
+  margin: 3rem 0 2rem;
+}
+
+.parentContainer {
+  background: white;
+  color: black;
+  padding: 5rem 0;
+  
+}
+
+.myContent {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+
+  h1, h2, p {
+    display: block;
+    text-align: center;
+  }
+
+  h1 {
+    font-family: 'Dosis', sans-serif;
+    font-size: 3rem;
+    font-weight: 400;
+    margin-top: -8rem;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+    span {
+      color: var(--red-600);
+    }
+  }
+
+  p {
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+  }
+}
+
+.avatar {
+
+  width: 10rem;
+  margin: 4rem auto 1rem;
+  position: relative;
+
+  
+
+  span {
+    opacity: 0.2;
+    position: absolute;
+    top: -30px;
+    left: 95px;
+    z-index: 1;
+  }
+
+  > img {
+    width: 13rem;
+    height: 14.95rem;
+    object-fit: cover;
+  
+    clip-path: polygon(50% 0, 100% 29%, 100% 70%, 50% 100%, 0 70%, 0 29%);
+  }
+}
