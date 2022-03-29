@@ -1,30 +1,40 @@
+import { GetStaticProps } from 'next'
 import Head from 'next/head'
 import commonStyles from '../styles/common.module.scss'
 import styles from './stylesHome.module.scss'
 
-export default function Home() {
+interface HomeProps {
+  name: string,
+  avatar: string,
+  description: string
+}
+
+export default function Home({ name, avatar, description }: HomeProps) {
   return (
     <>
       <Head>
         <title>Lucas Almeida | Home</title>
       </Head>
       <h1 className={styles.title}>
-        Lucas Diniz Almeida
+        {name}
       </h1>
       <div className={styles.avatar}>
         <span>
           <img src="/skills/javascript.svg" alt="Selo javascript" />
         </span>
-        <img src="https://avatars.githubusercontent.com/u/92605557?v=4" alt="Foto pessoal"
+        <img src={avatar} alt="Foto pessoal"
         id="picture" />
       </div>
-      <img src="/wave.svg" alt="wave" />
+      <h2 className={styles.subTitle}>Front end Developer</h2>
+      <img 
+        src="/wave2.svg" 
+        alt="wave" 
+        className={styles.waveSvg}
+      />
       <section className={styles.parentContainer}>
         <main className={commonStyles.container}>
           <div className={`${commonStyles.content} ${styles.myContent}`}>
-            <p>
-              Full Stack Developer in JavaScript. Especialista em ReactJS com o framework NextJS no front-end, NodeJS do back-end e React Native na parte mobile. Desenvolvo aplicações versáteis, totalmente escaláveis e com uma ótima experiência de usuário para a sua ideia. 
-            </p>
+            <p>{description}</p>
             
             <h2>
               Contato: <br /> 
@@ -35,4 +45,24 @@ export default function Home() {
       </section>
     </>
   )
+}
+
+
+export const getStaticProps: GetStaticProps = async() => {
+
+  const response = await fetch('https://api.github.com/users/lucasDinizAlmeida')
+  const data = await response.json()
+  
+  const usefulData = {
+    name: data.name,
+    avatar: data.avatar_url,
+    description: data.bio
+  }
+
+  return{
+    props: {
+      ...usefulData
+    },
+    revalidate: 60 * 60 * 24 //1 day
+  }
 }

@@ -1,18 +1,16 @@
-import Head from "next/head";
+import { TimeLineBox } from '../components/TimeLineBox'
 import commonStyles from '../styles/common.module.scss'
-export default function Portfolio() {
+import styles from './stylesPortfolio.module.scss'
 
+export default function Portfolio() {
   return(
-    <>
-      <Head>
-        <title>Lucas Almeida | Portfolio</title>
-      </Head>
-      <main className={commonStyles.container}>
-        <div className={commonStyles.content}>
-          <h1>Portfolio</h1>
-        </div>
-      </main>
-    </>
-    
+    <main className={commonStyles.container}>
+      <div className={`${commonStyles.content}`}>
+      
+        <TimeLineBox />
+        <TimeLineBox />
+        <TimeLineBox />
+      </div>
+    </main>
   )
 }

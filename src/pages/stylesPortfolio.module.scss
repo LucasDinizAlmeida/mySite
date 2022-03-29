@@ -1,0 +1,15 @@
+
+.contentLocal{
+  ::before {
+    content: "";
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    border: 2px solid #d6d5d5;
+    background: #fff;
+    margin: 0 auto;
+    position: absolute;
+    top: 0;
+    left: -6px;
+  }
+}
